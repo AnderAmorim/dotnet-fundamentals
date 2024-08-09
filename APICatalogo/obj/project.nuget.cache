@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "8IpV9Q9zKDo=",
+  "success": true,
+  "projectFilePath": "/Users/anderson.amorim.s/Documents/studies/dotnet-fundamentals/APICatalogo/APICatalogo.csproj",
+  "expectedPackageFiles": [
+    "/Users/anderson.amorim.s/.nuget/packages/microsoft.aspnetcore.openapi/8.0.7/microsoft.aspnetcore.openapi.8.0.7.nupkg.sha512",
+    "/Users/anderson.amorim.s/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/anderson.amorim.s/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/anderson.amorim.s/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/Users/anderson.amorim.s/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/anderson.amorim.s/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/anderson.amorim.s/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
