@@ -1,7 +1,7 @@
 ﻿{
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=CatalogoDB;Uid=root;Pwd="
+    "DefaultConnection": "Server=localhost;Database=ApiCatalogoDB;Uid=root;Pwd=root"
   },
   "iisSettings": {
     "windowsAuthentication": false,
