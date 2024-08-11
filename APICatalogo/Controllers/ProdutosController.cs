@@ -11,10 +11,14 @@ namespace APICatalogo.Controllers
     public class ProdutosController : ControllerBase
     { 
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public ProdutosController(AppDbContext context)
+        public ProdutosController(AppDbContext context,
+                                  IConfiguration configuration
+        )
         {
             _context = context;
+            _configuration = configuration;
         }
 
         [HttpGet]
