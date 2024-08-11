@@ -1,0 +1,59 @@
+# Excluir arquivos binários e temporários
+bin/
+obj/
+
+# Excluir pacotes de dependências restaurados pelo NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Excluir logs, dumps e arquivos de lock
+*.log
+*.dmp
+*.lock
+*.lock.json
+
+# Excluir configurações de ambiente local
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Excluir arquivos de build do Visual Studio
+.vscode/
+build/
+publish/
+out/
+
+# Excluir arquivos de teste e cobertura
+TestResults/
+*.coverage
+*.coveragexml
+*.testresult.xml
+*.trx
+coverage/
+.coverage/
+
+# Excluir arquivos gerados por build automatizado
+appveyor.yml
+azure-pipelines.yml
+docker-compose.override.yml
+docker-compose.*
+Dockerfile
+docker-compose.*
+.dockerignore
+
+# Excluir arquivos temporários e cache do sistema operacional
+*.DS_Store
+*.vscode/
+*.vs/
+*.vscode/
+.idea/
+.ReSharper/
+.vs/
+
+# Excluir arquivos de configuração local
+appsettings.Development.json
