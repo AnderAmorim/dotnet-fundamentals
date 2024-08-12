@@ -11,24 +11,24 @@ namespace APICatalogo.Controllers
     [Route("[controller]")]
     public class ProdutosController : ControllerBase
     { 
-        private readonly IRepository<Produto> _context;
+        private readonly IUnitOfWork _uow;
 
-        public ProdutosController(IRepository<Produto> context)
+        public ProdutosController(IUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<Produto>> Get()
         {
           
-          return _context.List().ToList();
+          return _uow.ProdutoRepository.List().ToList();
         }
 
         [HttpGet("{id:int:min(1)}", Name = "ObterProduto")]
         public async Task<ActionResult<Produto>> Get(int id)
         {
-            return _context.Get(p => p.ProdutoId == id);
+            return _uow.ProdutoRepository.Get(p => p.ProdutoId == id);
         }
         [HttpPost]
         public ActionResult Post(Produto produto)
@@ -36,7 +36,8 @@ namespace APICatalogo.Controllers
           if (produto is null)
             return BadRequest("Produto é nulo");
           
-          _context.Create(produto);
+          _uow.ProdutoRepository.Create(produto);
+          _uow.Commit();
           return new CreatedAtRouteResult("ObterProduto", new { id = produto.ProdutoId }, produto);
         }
 
@@ -46,18 +47,20 @@ namespace APICatalogo.Controllers
           if (id != produto.ProdutoId)
             return BadRequest("Produto não encontrado");
 
-          _context.Update(produto);
+          _uow.ProdutoRepository.Update(produto);
+          _uow.Commit();
           return Ok(produto);
         }
 
         [HttpDelete("{id:int}")] 
         public ActionResult Delete(int id)
         {
-          var produto = _context.Get(p => p.ProdutoId == id);
+          var produto = _uow.ProdutoRepository.Get(p => p.ProdutoId == id);
           if(produto is null){
             return NotFound("Produto não encontrado");
           }
-          _context.Delete(produto);
+          _uow.ProdutoRepository.Delete(produto);
+          _uow.Commit();
           return Ok(produto);
         }
     }
