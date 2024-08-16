@@ -1,11 +1,14 @@
-using APICatalogo.Models;
+﻿using APICatalogo.Models;
 
 namespace APICatalogo.DTOs.Mappings;
+
 public static class CategoriaDTOMappingExtensions
 {
     public static CategoriaDTO? ToCategoriaDTO(this Categoria categoria)
     {
-        if (categoria is null) return null;
+        if (categoria is null)
+            return null;
+
         return new CategoriaDTO
         {
             CategoriaId = categoria.CategoriaId,
@@ -14,14 +17,15 @@ public static class CategoriaDTOMappingExtensions
         };
     }
 
-    public static Categoria ToCategoria(this CategoriaDTO categoriaDTO)
+    public static Categoria? ToCategoria(this CategoriaDTO categoriaDto)
     {
-        if (categoriaDTO is null) return null;
+        if (categoriaDto is null) return null;
+
         return new Categoria
         {
-            CategoriaId = categoriaDTO.CategoriaId,
-            Nome = categoriaDTO.Nome,
-            ImagemUrl = categoriaDTO.ImagemUrl
+            CategoriaId = categoriaDto.CategoriaId,
+            Nome = categoriaDto.Nome,
+            ImagemUrl = categoriaDto.ImagemUrl
         };
     }
 
@@ -31,11 +35,12 @@ public static class CategoriaDTOMappingExtensions
         {
             return new List<CategoriaDTO>();
         }
-        List<CategoriaDTO> categoriasDTO = new();
-        foreach (var categoria in categorias)
+
+        return categorias.Select(categoria => new CategoriaDTO
         {
-            categoriasDTO.Add(categoria.ToCategoriaDTO()!);
-        }
-        return categoriasDTO;
+            CategoriaId = categoria.CategoriaId,
+            Nome = categoria.Nome,
+            ImagemUrl = categoria.ImagemUrl
+        }).ToList();
     }
 }

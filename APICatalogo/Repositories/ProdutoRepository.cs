@@ -1,16 +1,16 @@
-using APICatalogo.Context;
+﻿using APICatalogo.Context;
 using APICatalogo.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace APICatalogo.Repositories;
-public class ProdutoRepository : Repository<Produto>,IProdutoRepository
+
+public class ProdutoRepository : Repository<Produto>, IProdutoRepository
 {
-    public ProdutoRepository(AppDbContext context):base(context)
-    {
+    public ProdutoRepository(AppDbContext context): base(context)
+    {       
     }
-    
-    public IEnumerable<Produto> GetProdutosPorCategoria(int idCategoria)
+
+    public IEnumerable<Produto> GetProdutosPorCategoria(int id)
     {
-        return List().Where(p => p.CategoriaId == idCategoria).ToList();
+        return GetAll().Where(c => c.CategoriaId == id);
     }
 }
